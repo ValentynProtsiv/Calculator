@@ -10,13 +10,11 @@ public class Main {
         try {
             System.out.print("= " + calculateNum(expression));
         }catch (IndexOutOfBoundsException e){
-            System.out.println("No expression found\nTry 2 + 2");
+            System.out.println("No expression found\nTry 2 + 2"); // example : 7 + 2 + 4 - 3 / 2 * 2 / 2 * 2 / 4 + 3 + 7 - 834
         }
     }
 
     static double calculateNum(ArrayList<String> expression) {
-
-
 
         for (int i = 0; i < expression.size(); i++) {
             if (expression.get(i).equals("*") || expression.get(i).equals("/")) {
@@ -29,13 +27,13 @@ public class Main {
                 i--;
             }
         }
+
         double result = Double.parseDouble(expression.get(0));
         for (int i = 1; i < expression.size(); i+=2) {
             String operator = expression.get(i);
             double a = Double.parseDouble(expression.get(i + 1));
             result = operator.equals("+") ? result + a : result - a;
         }
-
 
         return result;
     }
